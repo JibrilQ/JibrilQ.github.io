@@ -1,23 +1,36 @@
-/* 1. RESET & BASICS */
+/* 1. VARIABLES (COLOR THEMES) */
 :root {
+    /* Light Mode (Default) */
     --bg: #ffffff;
     --text-main: #222;
     --text-muted: #666;
     --accent: #2563eb;
-    --font-main: 'Inter', sans-serif;
-    --font-serif: 'Lora', serif;
+    --border: #eee;
+    --nav-border: #ccc;
 }
 
+body.dark-mode {
+    /* Dark Mode Overrides */
+    --bg: #0f172a;       /* Deep dark blue/grey */
+    --text-main: #e2e8f0; /* Soft white */
+    --text-muted: #94a3b8;
+    --accent: #60a5fa;    /* Lighter blue to pop on dark */
+    --border: #1e293b;
+    --nav-border: #475569;
+}
+
+/* 2. BASE STYLES */
 body {
     background: var(--bg);
     color: var(--text-main);
-    font-family: var(--font-main);
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 40px 20px;
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth fade */
 }
 
-/* 2. LAYOUT */
+/* Layout */
 .container {
     max-width: 650px;
     margin: 0 auto;
@@ -25,16 +38,27 @@ body {
 
 h1, h2, h3 { margin-top: 0; }
 a { color: inherit; text-decoration: none; }
-hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
 
-/* 3. HEADER & INTRO */
+/* 3. HEADER & NAV */
 .intro { margin-bottom: 40px; }
 .intro h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; }
 .intro .bio { color: var(--text-muted); margin-bottom: 20px; }
-.intro nav a { margin-right: 15px; border-bottom: 1px solid #ccc; transition: 0.2s; }
+
+.intro nav { display: flex; align-items: center; gap: 15px; }
+.intro nav a { border-bottom: 1px solid var(--nav-border); transition: 0.2s; }
 .intro nav a:hover { border-color: var(--text-main); color: var(--accent); }
 
-/* Avatar */
+/* Theme Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    margin-left: auto; /* Pushes button to far right */
+}
+
 .avatar {
     width: 80px;
     height: 80px;
@@ -43,39 +67,34 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
     object-fit: cover;
 }
 
-/* 4. MAGIC CARD STYLES (The New Stuff) */
+/* 4. MAGIC CARD STYLES */
 .card {
-    /* Shape & Color */
-    background-color: #1a1a1a; /* Dark by default */
+    background-color: #1a1a1a;
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
-    color: white;
+    color: white; /* Always white text inside cards */
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     
-    /* Background Image (Hidden initially) */
-    /* Default image for all cards unless overridden inline */
+    /* Default Background */
     background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600');
     background-size: cover;
     background-position: center;
-    background-blend-mode: overlay; 
+    background-blend-mode: overlay;
     
-    /* Animation */
     transition: all 0.4s ease;
     border: 1px solid #333;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Hover State */
 .card:hover {
-    background-color: transparent; /* Reveals the image */
+    background-color: transparent;
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.4);
     border-color: rgba(255,255,255,0.2);
 }
 
-/* Icons Container */
 .icon-box {
     position: relative;
     height: 50px;
@@ -83,25 +102,19 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
     margin-bottom: 20px;
 }
 
-/* Icons Animation */
 .icon-default, .icon-hover {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+    top: 0; left: 0; width: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Default State */
 .icon-hover { opacity: 0; transform: scale(0.5) rotate(-20deg); }
 .icon-default { opacity: 1; transform: scale(1) rotate(0deg); }
 
-/* Hover State (The Swap) */
 .card:hover .icon-hover { opacity: 1; transform: scale(1) rotate(0deg); }
 .card:hover .icon-default { opacity: 0; transform: scale(1.5) rotate(20deg); }
 
-/* text inside card */
-.card-content h3 { margin-bottom: 10px; font-size: 1.4rem; }
+.card-content h3 { margin-bottom: 10px; font-size: 1.4rem; color: #fff; }
 .card-content p { color: #ccc; font-size: 0.95rem; margin-bottom: 20px; }
 .card-link { 
     display: inline-block; 
@@ -111,7 +124,7 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 }
 .card-link:hover { border-color: #fff; }
 
-/* 5. WRITING SECTION */
+/* 5. WRITING LIST */
 .writing-list { list-style: none; padding: 0; }
 .writing-list li { display: flex; margin-bottom: 10px; }
 .writing-list .date { 

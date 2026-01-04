@@ -17,12 +17,15 @@
             <h1>Jibril Qasim</h1>
             <p class="bio">
                 CS Student. Developer. <br>
-                Building simple, robust software.
+                Building simple software.
             </p>
             <nav>
-                <a href="mailto:your-email@example.com">Email</a>
+                <a href="mailto:jibrilq5@gmail.com">Email</a>
                 <a href="https://github.com/JibrilQ" target="_blank">GitHub</a>
-                <a href="resume.pdf">Resume</a>
+                <a href="JIBRIL_QASIM_CV.pdf" target="_blank">Resume</a>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer;">
+                    <img id="theme-icon" src="assets/icons/darkmodemoon.svg" alt="Dark Mode" style="width: 24px; height: 24px;">
+                </button>
             </nav>
         </header>
 
@@ -33,8 +36,8 @@
             
             <div class="card">
                 <div class="icon-box">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/source-code.png" class="icon-default" alt="code">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/rocket.png" class="icon-hover" alt="rocket">
+                    <img src="assets/icons/source-code.png" class="icon-default" alt="code">
+                    <img src="assets/icons/rocket.png" class="icon-hover" alt="rocket">
                 </div>
                 <div class="card-content">
                     <h3>Portfolio v1</h3>
@@ -43,10 +46,10 @@
                 </div>
             </div>
 
-            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=600');">
+            <div class="card" style="background-image: url('assets/images/codeplatform.jpg');">
                 <div class="icon-box">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/opened-folder.png" class="icon-default" alt="folder">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book.png" class="icon-hover" alt="book">
+                    <img src="assets/icons/opened-folder.png" class="icon-default" alt="folder">
+                    <img src="assets/icons/open-book.png" class="icon-hover" alt="book">
                 </div>
                 <div class="card-content">
                     <h3>Library App</h3>
@@ -64,7 +67,7 @@
             <ul class="writing-list">
                 <li>
                     <span class="date">2026</span>
-                    <a href="#">Why I switched to a static site</a>
+                    <a href="static-site.html">Why I switched to a static site</a>
                 </li>
                 <li>
                     <span class="date">2025</span>
@@ -74,6 +77,37 @@
         </section>
 
     </main>
+
+    <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon'); // Grab the image tag
+    const body = document.body;
+
+    // Define paths to keep code clean (Change these if your folder is different!)
+    const moonIcon = 'assets/icons/darkmodemoon.svg';
+    const sunIcon = 'assets/icons/lightmodesun.svg';
+
+    // 1. Check local storage on load
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.src = sunIcon; // Show Sun if already in dark mode
+    }
+
+    // 2. Click handler
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            // Switched to Dark Mode -> Save 'dark', Show Sun
+            localStorage.setItem('theme', 'dark');
+            themeIcon.src = sunIcon;
+        } else {
+            // Switched to Light Mode -> Save 'light', Show Moon
+            localStorage.setItem('theme', 'light');
+            themeIcon.src = moonIcon;
+        }
+    });
+    </script>
 
 </body>
 </html>
