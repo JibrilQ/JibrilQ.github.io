@@ -19,36 +19,99 @@ body {
 
 /* 2. LAYOUT */
 .container {
-    max-width: 650px; /* Limits width for readability */
-    margin: 0 auto;   /* Centers everything */
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 h1, h2, h3 { margin-top: 0; }
 a { color: inherit; text-decoration: none; }
 hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 
-/* 3. SECTIONS */
+/* 3. HEADER & INTRO */
 .intro { margin-bottom: 40px; }
 .intro h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; }
 .intro .bio { color: var(--text-muted); margin-bottom: 20px; }
-.intro nav a { margin-right: 15px; border-bottom: 1px solid #ccc; }
-.intro nav a:hover { border-color: var(--text-main); }
+.intro nav a { margin-right: 15px; border-bottom: 1px solid #ccc; transition: 0.2s; }
+.intro nav a:hover { border-color: var(--text-main); color: var(--accent); }
 
-/* Projects */
-.project-item { margin-bottom: 30px; }
-.project-header { display: flex; justify-content: space-between; align-items: baseline; }
-.project-header h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
-.link-arrow { font-size: 0.9rem; color: var(--text-muted); }
-.tech-stack span { 
-    background: #f4f4f5; 
-    padding: 2px 6px; 
-    border-radius: 4px; 
-    font-size: 0.75rem; 
-    margin-right: 5px; 
-    color: #555;
+/* Avatar */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
 }
 
-/* Writing */
+/* 4. MAGIC CARD STYLES (The New Stuff) */
+.card {
+    /* Shape & Color */
+    background-color: #1a1a1a; /* Dark by default */
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden; 
+    
+    /* Background Image (Hidden initially) */
+    /* Default image for all cards unless overridden inline */
+    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay; 
+    
+    /* Animation */
+    transition: all 0.4s ease;
+    border: 1px solid #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Hover State */
+.card:hover {
+    background-color: transparent; /* Reveals the image */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* Icons Container */
+.icon-box {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+/* Icons Animation */
+.icon-default, .icon-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+}
+
+/* Default State */
+.icon-hover { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+.icon-default { opacity: 1; transform: scale(1) rotate(0deg); }
+
+/* Hover State (The Swap) */
+.card:hover .icon-hover { opacity: 1; transform: scale(1) rotate(0deg); }
+.card:hover .icon-default { opacity: 0; transform: scale(1.5) rotate(20deg); }
+
+/* text inside card */
+.card-content h3 { margin-bottom: 10px; font-size: 1.4rem; }
+.card-content p { color: #ccc; font-size: 0.95rem; margin-bottom: 20px; }
+.card-link { 
+    display: inline-block; 
+    color: #fff; 
+    font-weight: 600; 
+    border-bottom: 1px solid rgba(255,255,255,0.4); 
+}
+.card-link:hover { border-color: #fff; }
+
+/* 5. WRITING SECTION */
 .writing-list { list-style: none; padding: 0; }
 .writing-list li { display: flex; margin-bottom: 10px; }
 .writing-list .date { 
