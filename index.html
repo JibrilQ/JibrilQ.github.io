@@ -40,8 +40,8 @@
                     <img src="assets/icons/rocket.png" class="icon-hover" alt="rocket">
                 </div>
                 <div class="card-content">
-                    <h3>Portfolio v1</h3>
-                    <p>A static personal site built with semantic HTML and CSS. Hover this card to see the dark mode animation.</p>
+                    <h3>Portfolio Website</h3>
+                    <p>A static personal site built with semantic HTML, CSS, and a little JS.</p>
                     <a href="https://github.com/JibrilQ/JibrilQ.github.io" class="card-link">View Code &rarr;</a>
                 </div>
             </div>
@@ -62,47 +62,32 @@
 
         <hr>
 
-        <section id="writing">
-            <h2>Notes & Thoughts</h2>
-            <ul class="writing-list">
-                <li>
-                    <span class="date">2026</span>
-                    <a href="static-site.html">Why I switched to a static site</a>
-                </li>
-                <li>
-                    <span class="date">2025</span>
-                    <a href="#">Learning Git the hard way</a>
-                </li>
-            </ul>
-        </section>
-
     </main>
 
     <script>
     const toggleButton = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon'); // Grab the image tag
+    const themeIcon = document.getElementById('theme-icon'); // Grab image tag
     const body = document.body;
 
-    // Define paths to keep code clean (Change these if your folder is different!)
     const moonIcon = 'assets/icons/darkmodemoon.svg';
     const sunIcon = 'assets/icons/lightmodesun.svg';
 
-    // 1. Check local storage on load
+
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark-mode');
-        themeIcon.src = sunIcon; // Show Sun if already in dark mode
+        themeIcon.src = sunIcon; 
     }
 
-    // 2. Click handler
+
     toggleButton.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         
         if (body.classList.contains('dark-mode')) {
-            // Switched to Dark Mode -> Save 'dark', Show Sun
+            // switched to Dark Mode -> Save 'dark' | Show Sun
             localStorage.setItem('theme', 'dark');
             themeIcon.src = sunIcon;
         } else {
-            // Switched to Light Mode -> Save 'light', Show Moon
+            // switched to Light Mode -> Save 'light' | Show Moon
             localStorage.setItem('theme', 'light');
             themeIcon.src = moonIcon;
         }

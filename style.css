@@ -123,14 +123,3 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
     border-bottom: 1px solid rgba(255,255,255,0.4); 
 }
 .card-link:hover { border-color: #fff; }
-
-/* 5. WRITING LIST */
-.writing-list { list-style: none; padding: 0; }
-.writing-list li { display: flex; margin-bottom: 10px; }
-.writing-list .date { 
-    width: 60px; 
-    color: var(--text-muted); 
-    font-size: 0.9rem; 
-    font-feature-settings: "tnum"; 
-}
-.writing-list a:hover { text-decoration: underline; color: var(--accent); }
