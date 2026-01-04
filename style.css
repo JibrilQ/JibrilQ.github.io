@@ -1,4 +1,4 @@
-/* 1. VARIABLES (COLOR THEMES) */
+/* COLOR THEMES */
 :root {
     /* Light Mode (Default) */
     --bg: #ffffff;
@@ -10,16 +10,15 @@
 }
 
 body.dark-mode {
-    /* Dark Mode Overrides */
-    --bg: #0f172a;       /* Deep dark blue/grey */
-    --text-main: #e2e8f0; /* Soft white */
+    --bg: #0f172a;
+    --text-main: #e2e8f0;
     --text-muted: #94a3b8;
-    --accent: #60a5fa;    /* Lighter blue to pop on dark */
+    --accent: #60a5fa;
     --border: #1e293b;
     --nav-border: #475569;
 }
 
-/* 2. BASE STYLES */
+/* BASE STYLES */
 body {
     background: var(--bg);
     color: var(--text-main);
@@ -27,7 +26,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 40px 20px;
-    transition: background 0.3s ease, color 0.3s ease; /* Smooth fade */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Layout */
@@ -56,7 +55,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
     cursor: pointer;
     font-size: 1.2rem;
     padding: 0;
-    margin-left: auto; /* Pushes button to far right */
+    margin-left: auto;
 }
 
 .avatar {
@@ -73,12 +72,12 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
-    color: white; /* Always white text inside cards */
+    color: white;
     position: relative;
     overflow: hidden;
     
     /* Default Background */
-    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600');
+    background-image: url('assets/images/codeplatform.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -109,17 +108,22 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
 }
 
 .icon-hover { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+
 .icon-default { opacity: 1; transform: scale(1) rotate(0deg); }
 
 .card:hover .icon-hover { opacity: 1; transform: scale(1) rotate(0deg); }
+
 .card:hover .icon-default { opacity: 0; transform: scale(1.5) rotate(20deg); }
 
 .card-content h3 { margin-bottom: 10px; font-size: 1.4rem; color: #fff; }
+
 .card-content p { color: #ccc; font-size: 0.95rem; margin-bottom: 20px; }
+
 .card-link { 
     display: inline-block; 
     color: #fff; 
     font-weight: 600; 
     border-bottom: 1px solid rgba(255,255,255,0.4); 
 }
+
 .card-link:hover { border-color: #fff; }

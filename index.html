@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jibril Qasim | Developer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital@0;1&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <main class="container">
-        
+
         <header class="intro">
-            <img src="https://ui-avatars.com/api/?name=Jibril+Qasim&background=2563eb&color=fff&size=128" alt="Jibril Qasim" class="avatar">
-            
+            <img src="https://ui-avatars.com/api/?name=Jibril+Qasim&background=2563eb&color=fff&size=128"
+                alt="Jibril Qasim" class="avatar">
+
             <h1>Jibril Qasim</h1>
             <p class="bio">
                 CS Student. Developer. <br>
@@ -23,8 +27,10 @@
                 <a href="mailto:jibrilq5@gmail.com">Email</a>
                 <a href="https://github.com/JibrilQ" target="_blank">GitHub</a>
                 <a href="JIBRIL_QASIM_CV.pdf" target="_blank">Resume</a>
-                <button id="theme-toggle" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer;">
-                    <img id="theme-icon" src="assets/icons/darkmodemoon.svg" alt="Dark Mode" style="width: 24px; height: 24px;">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"
+                    style="background:none; border:none; cursor:pointer;">
+                    <img id="theme-icon" src="assets/icons/darkmodemoon.svg" alt="Dark Mode"
+                        style="width: 24px; height: 24px;">
                 </button>
             </nav>
         </header>
@@ -33,7 +39,7 @@
 
         <section id="projects">
             <h2>Selected Work</h2>
-            
+
             <div class="card">
                 <div class="icon-box">
                     <img src="assets/icons/source-code.png" class="icon-default" alt="code">
@@ -52,9 +58,11 @@
                     <img src="assets/icons/open-book.png" class="icon-hover" alt="book">
                 </div>
                 <div class="card-content">
-                    <h3>Library App</h3>
-                    <p>A simple book tracking application. Demonstrating Node.js and simple data structures.</p>
-                    <a href="#" class="card-link">View Code &rarr;</a>
+                    <h3>Pet Adoption Platform</h3>
+                    <p>A full-stack shelter management system built with Node.js and SQL. Features Role-Based Access
+                        Control (RBAC) and secure authentication.</p>
+                    <a href="https://github.com/JibrilQ/Pet-Adoption-Shelter-Management-System" target="_blank"
+                        class="card-link">View Code &rarr;</a>
                 </div>
             </div>
 
@@ -65,34 +73,35 @@
     </main>
 
     <script>
-    const toggleButton = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon'); // Grab image tag
-    const body = document.body;
+        const toggleButton = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon'); // Grab image tag
+        const body = document.body;
 
-    const moonIcon = 'assets/icons/darkmodemoon.svg';
-    const sunIcon = 'assets/icons/lightmodesun.svg';
-
-
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark-mode');
-        themeIcon.src = sunIcon; 
-    }
+        const moonIcon = 'assets/icons/darkmodemoon.svg';
+        const sunIcon = 'assets/icons/lightmodesun.svg';
 
 
-    toggleButton.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        if (body.classList.contains('dark-mode')) {
-            // switched to Dark Mode -> Save 'dark' | Show Sun
-            localStorage.setItem('theme', 'dark');
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
             themeIcon.src = sunIcon;
-        } else {
-            // switched to Light Mode -> Save 'light' | Show Moon
-            localStorage.setItem('theme', 'light');
-            themeIcon.src = moonIcon;
         }
-    });
+
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                // switched to Dark Mode -> Save 'dark' | Show Sun
+                localStorage.setItem('theme', 'dark');
+                themeIcon.src = sunIcon;
+            } else {
+                // switched to Light Mode -> Save 'light' | Show Moon
+                localStorage.setItem('theme', 'light');
+                themeIcon.src = moonIcon;
+            }
+        });
     </script>
 
 </body>
+
 </html>
