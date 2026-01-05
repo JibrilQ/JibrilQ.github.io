@@ -35,10 +35,31 @@
             </nav>
         </header>
 
+        <p class="about-section">
+            I’m a second-year Software Engineering student currently seeking an industrial placement.
+            I enjoy building practical software projects and learning how real world systems are designed.
+            My interests are mainly in web and backend development, with a focus on writing clear, maintainable code.
+        </p>
+
         <hr>
 
         <section id="projects">
-            <h2>Selected Work</h2>
+            <h2>Selected Works</h2>
+
+            <div class="card" style="background-image: url('assets/images/pet-image.jpg');">
+                <div class="icon-box">
+                    <img src="assets/icons/source-code.png" class="icon-default" alt="folder">
+                    <img src="assets/icons/rocket.png" class="icon-hover" alt="book">
+                </div>
+
+                <div class="card-content">
+                    <h3>Pet Adoption Platform</h3>
+                    <p>A full-stack adoption platform connecting shelters and adopters. Built with Node.js, Express, and
+                        SQL, featuring Role Based Access Control (RBAC) and tracked adoption pipelines.</p>
+                    <a href="https://github.com/JibrilQ/Pet-Adoption-Shelter-Management-System" target="_blank"
+                        class="card-link">View Code &rarr;</a>
+                </div>
+            </div>
 
             <div class="card">
                 <div class="icon-box">
@@ -52,25 +73,13 @@
                 </div>
             </div>
 
-            <div class="card" style="background-image: url('assets/images/codeplatform.jpg');">
-                <div class="icon-box">
-                    <img src="assets/icons/opened-folder.png" class="icon-default" alt="folder">
-                    <img src="assets/icons/open-book.png" class="icon-hover" alt="book">
-                </div>
-                <div class="card-content">
-                    <h3>Pet Adoption Platform</h3>
-                    <p>A full-stack shelter management system built with Node.js and SQL. Features Role-Based Access
-                        Control (RBAC) and secure authentication.</p>
-                    <a href="https://github.com/JibrilQ/Pet-Adoption-Shelter-Management-System" target="_blank"
-                        class="card-link">View Code &rarr;</a>
-                </div>
-            </div>
-
         </section>
 
         <hr>
 
     </main>
+
+    <footer> © 2026 Jibril Qasim </footer>
 
     <script>
         const toggleButton = document.getElementById('theme-toggle');
